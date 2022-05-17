@@ -18,6 +18,22 @@ def search(arr, s, i, j):
     else:
         return search(arr, s, tmp, j)
 
+
+# Better soln
+def search1( nums, target: int) -> int:
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            pivot = left + (right - left) // 2
+            if nums[pivot] == target:
+                return pivot
+            if target < nums[pivot]:
+                right = pivot - 1
+            else:
+                left = pivot + 1
+        return -1
+
+
+
 d = len(nums)
 x = search(nums, target, 0, d)
 print(x)
